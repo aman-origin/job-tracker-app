@@ -1,5 +1,6 @@
 package com.jobtracker.common.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -12,17 +13,25 @@ import java.util.List;
 @Configuration
 public class CorsConfig {
 
+    // Read frontend URL from environment variable
+    @Value("${FRONTEND_URL:http://localhost:5173}")
+    private String frontendUrl;
+
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
 
-        // Allow frontend origin
-        corsConfiguration.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:3000"));
+        // Allow both local and production frontend
+        corsConfiguration.setAllowedOrigins(Arrays.asList(
+                "http://localhost:5173",
+                "http://localhost:3000",
+                frontendUrl  // This will be my Vercel URL
+        ));
 
-        // Allow common HTTP methods
-        corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        corsConfiguration.setAllowedMethods(Arrays.asList(
+                "GET", "POST", "PUT", "DELETE", "OPTIONS"
+        ));
 
-        // Allow common headers
         corsConfiguration.setAllowedHeaders(Arrays.asList(
                 "Authorization",
                 "Content-Type",
@@ -31,13 +40,11 @@ public class CorsConfig {
                 "X-Requested-With"
         ));
 
-        // Allow credentials (cookies, authorization headers)
         corsConfiguration.setAllowCredentials(true);
-
-        // How long the browser should cache the CORS config
         corsConfiguration.setMaxAge(3600L);
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        UrlBasedCorsConfigurationSource source =
+                new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration);
 
         return new CorsFilter(source);
