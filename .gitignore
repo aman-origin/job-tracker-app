@@ -1,0 +1,16 @@
+# Backend
+backend/job-tracker-backend/target/
+backend/job-tracker-backend/.mvn/
+backend/job-tracker-backend/*.iml
+backend/job-tracker-backend/.idea/
+
+# Frontend
+frontend/job-tracker-frontend/node_modules/
+frontend/job-tracker-frontend/dist/
+frontend/job-tracker-frontend/.env
+frontend/job-tracker-frontend/.env.local
+
+# General
+.DS_Store
+*.log
+.env
