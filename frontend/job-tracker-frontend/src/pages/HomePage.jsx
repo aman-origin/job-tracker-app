@@ -54,7 +54,7 @@ function HomePage() {
     { name: 'Spring Boot', color: 'bg-green-100 text-green-700' },
     { name: 'Spring Security', color: 'bg-emerald-100 text-emerald-700' },
     { name: 'JWT Auth', color: 'bg-yellow-100 text-yellow-700' },
-    { name: 'MySQL', color: 'bg-blue-100 text-blue-700' },
+    { name: 'PostgreSQL', color: 'bg-blue-100 text-blue-700' },
     { name: 'JPA/Hibernate', color: 'bg-orange-100 text-orange-700' },
     { name: 'Tailwind CSS', color: 'bg-sky-100 text-sky-700' },
     { name: 'REST API', color: 'bg-purple-100 text-purple-700' },
@@ -101,7 +101,7 @@ function HomePage() {
       icon: '💻',
     },
     {
-      title: 'JPA/Hibernate + MySQL',
+      title: 'JPA/Hibernate + PostgreSQL',
       desc: 'Entity relationships with proper annotations, repository pattern, and optimized database queries.',
       icon: '🗄️',
     },
@@ -355,7 +355,7 @@ function HomePage() {
                 <div className="text-3xl mb-3">⚛️</div>
                 <h3 className="font-bold text-gray-900 mb-2">Frontend</h3>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>React 18</li>
+                  <li>React 19</li>
                   <li>React Router DOM</li>
                   <li>Axios</li>
                   <li>Tailwind CSS</li>
@@ -379,7 +379,7 @@ function HomePage() {
                 <div className="text-3xl mb-3">🗄️</div>
                 <h3 className="font-bold text-gray-900 mb-2">Database</h3>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>MySQL</li>
+                  <li>PostgreSQL</li>
                   <li>Hibernate ORM</li>
                   <li>Entity Relationships</li>
                   <li>Data Validation</li>
@@ -433,7 +433,7 @@ function HomePage() {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-              <span className="text-sm">MySQL</span>
+              <span className="text-sm">PostgreSQL</span>
             </div>
           </div>
         </div>
@@ -476,6 +476,8 @@ function HomePage() {
           </div>
         </section>
       )}
+
+
 
       {/* ─── Footer ─── */}
       <footer className="py-8 px-4 border-t border-gray-100 bg-white">
