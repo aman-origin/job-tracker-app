@@ -4,6 +4,12 @@ import { auth } from '../utils/auth';
 
 function HomePage() {
   const isAuthenticated = auth.isAuthenticated();
+
+  // Wake up backend when homepage loads
+  useEffect(() => {
+    fetch(import.meta.env.VITE_API_URL + '/health').catch(() => {});
+  }, []);
+
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
